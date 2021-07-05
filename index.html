@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+    <script type="text/javascript" src="./main.js"></script>
+    <script type="text/javascript" src="./validation.js"></script>
+
+    <title>Cadastro de itens</title>
+</head>
+<body page="lista">
+    <div class="container-fluid" >
+        <div class="row justify-content-center">
+            <!-- barra navegacao -->
+            <div class="barra-nav">
+                <button type="submit" class="btn btn-dark" onclick="visualizar('cadastro')">Cadastro</button>
+                 <br>
+                <button type="button" class="btn btn-dark" onclick="visualizar('lista')">Tabela</button>
+
+            </div>
+            <div class="col-xl-7 col-10" id="cadastro-registros">
+
+                
+                <form>
+                    <!-- cadastro de produtos -->
+                    <h5 class="title mr-2 ml-2 mb-2 mt-2">Cadastro de produtos</h5>
+
+                    <!-- Nome Item -->
+                    <div class="mr-2 ml-2 mb-2 mt-2">
+                        <label for="exampleInputEmail1" class="form-label">Nome Item</label>
+                        <input type="text" class="form-control" id="nome" 
+                            required maxlength="50" pattern="[a-z\s]+$">
+                    </div>
+                    <div class="row mr-2 ml-2 mb-2 mt-2">
+                        <!-- Unidade de Medida -->
+                        <div class="md-2">
+                            <label for="validationCustom04" class="form-label">Unidade de Medida</label>
+                            <br>
+                            <select class="form-select" class="form-label" id="unidadeMedida" required id="unidadeMedida">
+                              <option selected disabled>Selecione a UM</option>
+                              <option>Litro</option>
+                              <option>Quilograma</option>
+                              <option>Unidade</option>
+                            </select>
+                        </div>
+
+                        <!-- Quantidade -->
+                        <div class="ml-2">
+                            <label for="exampleInputPassword1" class="form-label">Quantidade</label>
+                            <input type="number" class="form-control" id="quantidade">
+                        </div>
+
+                        <!-- Preço -->
+                        <div class="ml-2">
+                            <label for="exampleInputPassword1" class="form-label">Preço</label>
+                            <input type="number" class="form-control" id="preco" required="required"
+                                maxlength="15" name="valor" pattern="([0-9]{1,3}\.)?[0-9]{1,3},[0-9]{2}$">
+                        </div>  
+                    </div>
+
+
+                        <!-- Produto perecível -->
+                        <div class="mr-2 ml-2 mb-2 mt-2 form-check">
+                            <input type="checkbox" class="form-check-input" id="produtoPerecivel">
+                            <label class="form-check-label" for="exampleCheck1" >Produto perecível</label>
+                        </div>
+
+                    <div class="row mr-2 ml-2 mb-2 mt-2">
+
+                        <!-- Data de validade -->
+                        <div class="mr-2">
+                            <label for="exampleInputPassword1" class="form-label">Data de validade</label>
+                            <input type="date" class="form-control" id="dataValidade">
+                        </div>
+
+                        <!-- Data de fabricação -->
+                        <div class="ml-2">
+                            <label for="exampleInputPassword1" class="form-label">Data de fabricação</label>
+                            <input type="date" class="form-control" id="dataFabricacao">
+                        </div>
+
+                        <!-- ID do Item -->
+                        <div class="ml-2">
+                            <label for="exampleInputEmail1" class="form-label">ID</label>
+                            <input type="text" class="form-control" readonly id="id">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-success  mr-2 ml-2 mb-2 mt-2">Enviar</button>
+                    <button type="button" class="btn btn-secondary  mr-2 ml-2 mb-2 mt-2"
+                    onclick="visualizar('lista')">Cancelar</button>
+                </form>
+            </div>    
+
+                <!-- lista de produtos -->
+            <div class="col-xl-10 col-12" id="lista-registros">
+
+                <h5 class="title mr-2 ml-2 mb-2 mt-2">Tabela de produtos</h5>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nome Item</th>
+                            <th scope="col">Unidade de Medida</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Preço</th>
+                            <th scope="col">Produto perecível</th>
+                            <th scope="col">Produto perecível</th>
+                            <th scope="col">Data de fabricação</th>
+                            <th scope="col">Configurações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="listaRegistrosBody">
+                            <tr></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button type="submit" class="btn btn-success  mr-2 ml-2 mb-2 mt-2"
+                onclick="visualizar('cadastro', true)">Novo Cadastro</button>
+            </div>
+        </div>     
+    </div>
+    
+</body>
+</html>

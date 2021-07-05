@@ -1,0 +1,68 @@
+
+/* *{
+    margin: 0;
+    padding: 0;
+} */
+.container-fluid{
+    margin: 0;
+    max-width: 2000px;
+}
+.container-fluid .barra-nav{
+    border-right-color:#fff;
+    padding: 1rem;
+    border: 1px solid #ced4da;
+    margin: auto 0;
+    width: 11rem;
+    height: 11rem;
+}
+.container-fluid .barra-nav button{
+    width: 100%;
+    margin: 1rem auto;
+}
+body[page="lista"] #lista-registros{
+    display: block;
+    text-align: center;
+}
+body[page="cadastro"] #cadastro-registros{
+    display: block;
+}
+.container-fluid #cadastro-registros{
+    display: none;
+}
+.container-fluid #lista-registros {
+    display: none;
+}
+.container-fluid #cadastro-registros h5{
+    text-align: center;
+}
+.container-fluid #cadastro-registros .form-select{
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.container-fluid button{
+    margin: 0.2rem;
+}
+.container-fluid .table thead th, .table td, .table th{
+    padding: 0;
+}
+@media (max-width: 750px){
+    .container-fluid .barra-nav{
+        margin-top: 1rem;
+    }
+    .container-fluid .table thead th, .table td, .table th{
+        padding: 0.5rem;
+    }
+    .container-fluid > .row{
+        padding: 0 0 20rem 0;
+    }
+} 
